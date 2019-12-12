@@ -1,11 +1,12 @@
+var Spotify = require('node-spotify-api');
 // Include the axios npm package
 var axios = require("axios");
 // code to read and set any environment variables with the dotenv package:
 require("dotenv").config();
 // import the `keys.js` file and store it in a variable.
-// var keys = require("./keys.js");
+var keys = require("./keys.js");
 // Access the spotify keys
-// var spotify = new Spotify(keys.spotify);
+var spotify = new Spotify(keys.spotify);
 // Grabbing what the user wants to do
 var command = process.argv[2];
 // Grabbing the name of the band/artist/movie that the user wants to know about
@@ -68,22 +69,67 @@ function concertThis(artistName) {
 
 }
 
+function spotifyThisSong(song) {
+
+  if (isEmpty(song)) {
+    song = "The Sign";
+
+    spotify.search({ type: 'track', query: song }, function(err, data) {
+    if (err) {
+      return console.log('Error occurred: ' + err);
+    }
+    
+    for (var i in data.tracks.items) {
+        if(((data.tracks.items[i].artists[0].name) === "Ace of Base") && (((data.tracks.items[i].name) === song))) {
+          console.log("-------");
+          console.log("Artist: " + data.tracks.items[i].artists[0].name);
+          console.log("Song title: " + data.tracks.items[i].name);
+          if (isEmpty(data.tracks.items[i].preview_url)) {
+            console.log("No preview found");
+          }
+          else {
+            console.log("Preview URL: " + data.tracks.items[i].preview_url);
+          }
+          console.log("Album name: " + data.tracks.items[i].album.name);
+    }
+    
+  };
+  });
+  }
+  else {
+    spotify.search({ type: 'track', query: song }, function(err, data) {
+      if (err) {
+        return console.log('Error occurred: ' + err);
+      }
+      console.log("Artist: " + data.tracks.items[0].artists[0].name);
+      console.log("Song title: " + data.tracks.items[0].name);
+      if (isEmpty(data.tracks.items[0].preview_url)) {
+        console.log("No preview found");
+      }
+      else {
+        console.log("Preview URL: " + data.tracks.items[0].preview_url);
+      }
+      console.log("Album name: " + data.tracks.items[0].album.name);
+      });
+  };
+}
+
 function movieThis(movieName) {
 
   var queryURL = ("http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy")
   // Then run a request with axios to the OMDB API with the movie specified
   axios.get(queryURL).then(
     function(response) {
-      console.log("-------")
-      console.log("Title of the movie: " + response.data.Title)
-      console.log("Year the movie came out: " + response.data.Year)
-      console.log("IMDB Rating of the movie: " + response.data.imdbRating)
-      console.log("Rotten Tomatoes Rating of the movie: " + response.data.Ratings[1].Value)
-      console.log("Country where the movie was produced: " + response.data.Country)
-      console.log("Language of the movie: " + response.data.Language)
-      console.log("Plot of the movie: " + response.data.Plot)
-      console.log("Actors in the movie: " + response.data.Actors)
-      console.log("-------")
+      console.log("-------");
+      console.log("Title of the movie: " + response.data.Title);
+      console.log("Year the movie came out: " + response.data.Year);
+      console.log("IMDB Rating of the movie: " + response.data.imdbRating);
+      console.log("Rotten Tomatoes Rating of the movie: " + response.data.Ratings[1].Value);
+      console.log("Country where the movie was produced: " + response.data.Country);
+      console.log("Language of the movie: " + response.data.Language);
+      console.log("Plot of the movie: " + response.data.Plot);
+      console.log("Actors in the movie: " + response.data.Actors);
+      console.log("-------");
   })
   .catch(function(error) {
     if (error.response) {
@@ -112,16 +158,16 @@ function movieThis(movieName) {
 switch (command) {
     case "concert-this":
         if(isEmpty(userInput)) {
-            console.log("Type in an artist name between quotes after typing in 'concert-this'")
-            console.log('Example: node liri.js concert-this "Celine Dion"')
+            console.log("Type in an artist name between quotes after typing in 'concert-this'");
+            console.log('Example: node liri.js concert-this "Celine Dion"');
         }
         else {
             concertThis(userInput);
-      }
-      break;
+        }
+        break;
     case "spotify-this-song":
-      console.log("Tuesday");
-      break;
+          spotifyThisSong(userInput);
+        break;
     case "movie-this":
         if(isEmpty(userInput)) {
             userInput = "Mr. Nobody";
@@ -130,7 +176,7 @@ switch (command) {
         else {
             movieThis(userInput);
         }
-      break;
+        break;
     case "do-what-it-says":
       console.log("Thursday");
       break;

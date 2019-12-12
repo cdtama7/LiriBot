@@ -19,6 +19,7 @@
   "homepage": "https://github.com/cdtama7/LiriBot#readme",
   "dependencies": {
     "axios": "^0.19.0",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "node-spotify-api": "^1.1.1"
   }
 }
