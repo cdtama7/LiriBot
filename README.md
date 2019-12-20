@@ -6,6 +6,8 @@ LiriBot will give you information about songs, movies and concerts.
 
 For liribot to work on your computer, you need to create your own .env file that has the userid and the secret for the spotify API.
 
+# Commands
+
 Liribot has 4 main commands:
 
 Liribot commands: (You have to type in this on the prompt)-
