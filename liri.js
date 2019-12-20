@@ -1,3 +1,5 @@
+// Include the fs npm package
+var fs = require("fs");
 var Spotify = require('node-spotify-api');
 // Include the axios npm package
 var axios = require("axios");
@@ -10,7 +12,7 @@ var spotify = new Spotify(keys.spotify);
 // Grabbing what the user wants to do
 var command = process.argv[2];
 // Grabbing the name of the band/artist/movie that the user wants to know about
-var userInput = process.argv[3];
+var userInput = process.argv.slice(3).join(" ");
 
 function isEmpty(str) {
     return (!str || 0 === str.length);
@@ -19,6 +21,8 @@ function isEmpty(str) {
 function emptyObject(object) {
   return (0 === object.length)
 }
+
+var divider = "\n------------------------------------------------------------\n\n";
 
 function concertThis(artistName) {
   var queryURL = ("https://rest.bandsintown.com/artists/" + artistName + "/events?app_id=codingbootcamp")
@@ -112,6 +116,12 @@ function spotifyThisSong(song) {
       console.log("Album name: " + data.tracks.items[0].album.name);
       });
   };
+  // fs.appendFile("log.txt", movieData + divider, function(err) {
+  //   if (err) throw err;
+  //   console.log("------")
+  //   console.log(movieData);
+  //   console.log("------")
+  // });
 }
 
 function movieThis(movieName) {
@@ -120,16 +130,23 @@ function movieThis(movieName) {
   // Then run a request with axios to the OMDB API with the movie specified
   axios.get(queryURL).then(
     function(response) {
-      console.log("-------");
-      console.log("Title of the movie: " + response.data.Title);
-      console.log("Year the movie came out: " + response.data.Year);
-      console.log("IMDB Rating of the movie: " + response.data.imdbRating);
-      console.log("Rotten Tomatoes Rating of the movie: " + response.data.Ratings[1].Value);
-      console.log("Country where the movie was produced: " + response.data.Country);
-      console.log("Language of the movie: " + response.data.Language);
-      console.log("Plot of the movie: " + response.data.Plot);
-      console.log("Actors in the movie: " + response.data.Actors);
-      console.log("-------");
+      var movieData = [
+        "Title of the movie: " + response.data.Title,
+        "Year the movie came out: " + response.data.Year,
+        "IMDB Rating of the movie: " + response.data.imdbRating,
+        "Rotten Tomatoes Rating of the movie: " + response.data.Ratings[1].Value,
+        "Country where the movie was produced: " + response.data.Country,
+        "Language of the movie: " + response.data.Language,
+        "Plot of the movie: " + response.data.Plot,
+        "Actors in the movie: " + response.data.Actors,
+      ].join("\n\n");
+      
+      fs.appendFile("log.txt", movieData + divider, function(err) {
+        if (err) throw err;
+        console.log("------")
+        console.log(movieData);
+        console.log("------")
+      });
   })
   .catch(function(error) {
     if (error.response) {
@@ -153,6 +170,30 @@ function movieThis(movieName) {
 
   });
 
+}
+
+function itSays() {
+  fs.readFile("random.txt", "utf8", function(error, data) {
+
+    // If the code experiences any errors it will log the error to the console.
+    if (error) {
+      return console.log(error);
+    }
+  
+    // Then split it by commas (to make it more readable)
+    var dataArr = data.split(",");
+
+    lenght = dataArr.length;
+
+    console.log(lenght)
+  
+    for (var i in dataArr) {
+      console.log(dataArr[i].trim());
+    }
+    // We will then re-display the content as an array for later use.
+    
+  
+  });
 }
 // Running a switch that runs the corresponding function depending on the user command.
 switch (command) {
@@ -178,6 +219,6 @@ switch (command) {
         }
         break;
     case "do-what-it-says":
-      console.log("Thursday");
+      itSays();
       break;
   }

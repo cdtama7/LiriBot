@@ -1,0 +1,106 @@
+-------
+
+Title of the movie: The Matrix
+
+Year the movie came out: 1999
+
+IMDB Rating of the movie: 8.7
+
+Rotten Tomatoes Rating of the movie: 88%
+
+Country where the movie was produced: USA
+
+Language of the movie: English
+
+Plot of the movie: A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.
+
+Actors in the movie: Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, Hugo Weaving
+
+-------
+------------------------------------------------------------
+
+Title of the movie: Bill
+
+Year the movie came out: 2015
+
+IMDB Rating of the movie: 6.5
+
+Rotten Tomatoes Rating of the movie: 89%
+
+Country where the movie was produced: UK
+
+Language of the movie: English
+
+Plot of the movie: What really happened during Shakespeare's 'Lost Years'? Hopeless lute player Bill Shakespeare leaves his home to follow his dream.
+
+Actors in the movie: Mathew Baynton, Simon Farnaby, Martha Howe-Douglas, Jim Howick
+------------------------------------------------------------
+
+Title of the movie: Nocturnal Animals
+
+Year the movie came out: 2016
+
+IMDB Rating of the movie: 7.5
+
+Rotten Tomatoes Rating of the movie: 74%
+
+Country where the movie was produced: USA
+
+Language of the movie: English
+
+Plot of the movie: A wealthy art gallery owner is haunted by her ex-husband's novel, a violent thriller she interprets as a symbolic revenge tale.
+
+Actors in the movie: Amy Adams, Jake Gyllenhaal, Michael Shannon, Aaron Taylor-Johnson
+------------------------------------------------------------
+
+Title of the movie: Nocturnal Animals
+
+Year the movie came out: 2016
+
+IMDB Rating of the movie: 7.5
+
+Rotten Tomatoes Rating of the movie: 74%
+
+Country where the movie was produced: USA
+
+Language of the movie: English
+
+Plot of the movie: A wealthy art gallery owner is haunted by her ex-husband's novel, a violent thriller she interprets as a symbolic revenge tale.
+
+Actors in the movie: Amy Adams, Jake Gyllenhaal, Michael Shannon, Aaron Taylor-Johnson
+------------------------------------------------------------
+
+Title of the movie: The Matrix Reloaded
+
+Year the movie came out: 2003
+
+IMDB Rating of the movie: 7.2
+
+Rotten Tomatoes Rating of the movie: 73%
+
+Country where the movie was produced: USA
+
+Language of the movie: English, French
+
+Plot of the movie: Neo and his allies race against time before the machines discover the city of Zion and destroy it. While seeking the truth about the Matrix, Neo must save Trinity from a dark fate within his dreams.
+
+Actors in the movie: Ray Anthony, Christine Anu, Andy Arness, Alima Ashton-Sheibu
+------------------------------------------------------------
+
+Title of the movie: The Good, the Bad and the Ugly
+
+Year the movie came out: 1966
+
+IMDB Rating of the movie: 8.8
+
+Rotten Tomatoes Rating of the movie: 97%
+
+Country where the movie was produced: Italy, Spain, West Germany
+
+Language of the movie: Italian, English, Spanish
+
+Plot of the movie: A bounty hunting scam joins two men in an uneasy alliance against a third in a race to find a fortune in gold buried in a remote cemetery.
+
+Actors in the movie: Eli Wallach, Clint Eastwood, Lee Van Cleef, Aldo Giuffrè
+------------------------------------------------------------
+
