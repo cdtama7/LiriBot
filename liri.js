@@ -185,11 +185,45 @@ function itSays() {
 
     lenght = dataArr.length;
 
-    console.log(lenght)
-  
-    for (var i in dataArr) {
-      console.log(dataArr[i].trim());
+    var rand = dataArr[Math.floor(Math.random() * dataArr.length)];
+
+    var solution = fruit => fruit === rand;
+
+    var found = dataArr.findIndex(solution);
+
+    var userInput2 = dataArr[found + 1];
+
+    if(isEmpty(userInput2)) {
+      itSays();
     }
+    // console.log(lenght);
+    else {
+      userInput = userInput2.trim();
+
+      command = rand.trim();
+      switch (command) {
+        case "concert-this":
+              console.log(command + ": " + userInput)
+              concertThis(userInput);
+            break;
+        case "spotify-this-song":
+              console.log(command + ": " + userInput)
+              spotifyThisSong(userInput);
+            break;
+        case "movie-this":
+              console.log(command + ": " + userInput)
+              movieThis(userInput);
+            break;
+        default:
+          itSays();
+          break; 
+        }
+    }
+  
+    // for (var i in dataArr) {
+
+    //   console.log(dataArr[i].trim());
+    // }
     // We will then re-display the content as an array for later use.
     
   
